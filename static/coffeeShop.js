@@ -11,11 +11,16 @@ for (const button of addButtons) {
     fetch(`/update-cart.json?item=${item}`)
       .then((response) => response.json())
       .then((result) => {
+        // console.log('Result from fetch:', result);
         cart = result.cart;
         orderTotal = result.total;
+        displayCart(cart);
+        displayOrderTotal(orderTotal);
       });
-    displayCart(cart);
-    displayOrderTotal(orderTotal);
+
+    // console.log('cart:', cart);
+    // console.log('orderTotal:', orderTotal);
+
   });
 }
 

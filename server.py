@@ -38,13 +38,8 @@ def update_cart():
     """
 
     item = request.args.get("item")
-    # cart = session.get("cart", {})
-    # print(session["cart"])
-    # print(item)
-    # print("*********************")
 
     session["cart"][item] = session["cart"].get(item, 0) + 1
-    # session[cart][item] += 1
     session["order_total"] += get_item_price(item)
 
     return jsonify({"cart": session["cart"], "total": session["order_total"]})
@@ -52,8 +47,8 @@ def update_cart():
 
 def get_item_price(item_name):
     """Get the price of an item by name. DO NOT MODIFY this function."""
-    print(item_name)
-    print("****************")
+    # print(item_name)
+    # print("****************")
     if "Coffee" in item_name:
         return COFFEE_PRICE
     else:
